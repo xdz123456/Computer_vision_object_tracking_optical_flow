@@ -8,6 +8,9 @@ The primary purpose of this project is to perform object tracking in a given vid
 3. Using the Canny algorithm for object edge detection.
 4. Human-computer interaction to add new tracking points by clicking on the image.
 
+![image](https://user-images.githubusercontent.com/39216716/216953324-7c6f7769-6d96-468e-9039-c41a89313d4d.png)
+
+
 ## Key Features Description and Implement
 
 ### Project Prerequisites
