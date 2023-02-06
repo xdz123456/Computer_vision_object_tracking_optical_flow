@@ -27,6 +27,9 @@ The primary purpose of this project is to perform object tracking in a given vid
 ### Implementation of the sparse optical flow tracking
 
 Firstly, the input video is obtained using the cv2.VideoCapture() function in the cv2 library. The first frame of the video is acquired and the Shi-Tomasi Corner Detector algorithm is used to perform feature detection on this frame.  cv2 provides the cv2.goodFeaturesToTrack() function to implement the Shi-Tomasi Corner Detector algorithm. WAITTOADD Also users can adjust the results of feature detection by adjusting the feature_params parameter of the cv2.goodFeaturesToTrack() function. Afterwards I stored all the feature points obtained in the ndarray p0. When the above has been done, the next frame of the video is obtained by looping. I chose to use the Lucas-Kanade algorithm to calculate the sparse optical flow. WAITTOADD  cv2 library provides a highly efficient function cv2.calcOpticalFlowPyrLK() to implement the Lucas-Kanade Optical Flow algorithm. The inputs are the feature points of the previous frame p0, the grey scale map of the previous frame, and the grey scale map of this frame. The output is ndarray p1 which contains the new position of the calculated feature points in the next frame. Then, drawing the tracing lines and tracing point at the current frame, connecting the old feature points with the new ones using the cv2.line() function, i.e. tracing lines, and drawing circles at the new feature points using the cv2.circle() function, i.e. tracing points. Loop through the above operations until the last frame of the video is read. Calling this function is much more efficient than implementing Lucas-Kanade algorithm ourselves. Users can also adjust the calculation of the algorithm by adjusting the lk_params of the cv2.calcOpticalFlowPyrLK() function.
+
+
+
 ![image](https://user-images.githubusercontent.com/39216716/216953110-4f395867-8d57-4af1-b4e9-cf95104118ea.png)
 
 
